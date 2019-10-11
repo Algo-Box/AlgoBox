@@ -30,4 +30,5 @@ def viewObject():
 	jsonData = getContestList()
 	dictObj = json.loads(jsonData)
 	dictObj = dictObj['objects']
+	# print (dictObj)
 	return dictObj
