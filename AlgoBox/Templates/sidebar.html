@@ -22,7 +22,7 @@
 			<nav class="contest-list">
 				<ul>
 					{% for contest in contestList %}
-					<li> {{contest.resource.name}} : <a href="{{contest.href}}">{{ contest.event }}</a> </li>
+					<a href="{{contest.href}}"><li> {{contest.event}} </li></a> 
 					{% endfor %}
 				</ul>
 			</nav>

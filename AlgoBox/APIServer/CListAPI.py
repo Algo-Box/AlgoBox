@@ -36,6 +36,11 @@ def viewObject():
 def saveModel():
 	dictObj = viewObject()
 	print (dictObj)
+	listOfContest = contest.objects.all()
 	for obj in dictObj:
-		con = contest(event=obj["event"], start=obj["start"], end=obj["end"], duration=obj["duration"])
-		con.save()
+		if listOfContest.filter(event=obj["event"]).exists():
+			continue
+		else:
+			con = contest(event=obj["event"], start=obj["start"], end=obj["end"], 
+			duration=obj["duration"], href=obj["href"], domain=obj["resource"]["name"])
+			con.save()
