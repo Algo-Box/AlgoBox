@@ -13,7 +13,6 @@ more-itertools==7.2.0
 python-crontab==2.3.9
 python-dateutil==2.8.0
 pytz==2019.3
-redis==3.3.10
 requests==2.22.0
 six==1.12.0
 sqlparse==0.3.0
