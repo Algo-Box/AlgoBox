@@ -39,7 +39,7 @@
 					<h2 class="card-title">{{ post.title }}</h2>
 					<p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
 					<p class="card-text">{{post.content|slice:":50" }} ...</p>
-					<a href="" class="btn btn-primary">Read More &rarr;</a>
+					<a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 			</div>
 			{% endfor %}
