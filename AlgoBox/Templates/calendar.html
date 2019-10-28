@@ -6,7 +6,7 @@
 {% include "header.html" %}
 {% endblock header %}
 
-<div class="container">
+<div class="container" style="padding-top: 0.8%">
 	<table>
 		<div class="row">
 			<tr>
@@ -15,16 +15,14 @@
 				<th>End Time</th>
 				<th>Duration</th>
 			</tr>
-			{{ for con in contest}}
+			{% for contest in contest_list %}
 			<tr>
-				<a href="{{ contest.href }}">
-					<td> con.event </td>
-				</a>
-				<td> con.start </td>
-				<td> con.end </td>
-				<td> con.duration </td>
+				<td> <a href="{{ contest.href }}"> {{ contest.event }} </a> </td>
+				<td> {{ contest.start }} </td>
+				<td> {{ contest.end }} </td>
+				<td> {{ contest.duration }} </td>
 			</tr>
-			{{ endfor }}
+			{% endfor %}
 		</div>
 	</table>
 </div>
