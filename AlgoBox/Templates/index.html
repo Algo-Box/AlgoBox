@@ -15,20 +15,11 @@
 		box-shadow: 0 16px 48px #E3E7EB;
 	}
 </style>
-		
-<header class="masthead" >
-	<div class="overlay"></div>
-	<div class="container">
-		<div class="row">
-			<div class=" col-md-8 col-md-10 mx-auto">
-				<div class="site-heading">
-					<h3 class=" site-heading my-4 mt-3 text-white"> Algorithm or Data structure? </h3>
-					<p class="text-light">You are at the right place!</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+
+{% block header %}		
+{% include "header.html" %}
+{% endblock header %}
+ 
 <div class="container">
 	<div class="row">
 	<!-- Blog Entries Column -->
@@ -39,7 +30,7 @@
 					<h2 class="card-title">{{ post.title }}</h2>
 					<p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
 					<p class="card-text">{{post.content|slice:":50" }} ...</p>
-					<a href="" class="btn btn-primary">Read More &rarr;</a>
+					<a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 			</div>
 			{% endfor %}
