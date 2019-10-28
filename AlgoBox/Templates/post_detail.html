@@ -23,7 +23,7 @@
 	<div class="row">
 		<!-- Blog Entries Column -->
 		<div class="col-md-8 mt-3 left">
-			<div class="card mb-4" >
+			<div class="card" style="width:100%;">
 				<div class="card-body">
 					<h2 class="card-title">{{ post.title }}</h2>
 					<p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
@@ -31,7 +31,6 @@
 				</div>
 			</div>
 		</div>
-	
 	{% block sidebar %}
 	{% include 'sidebar.html' %}
 	{% endblock sidebar %}
