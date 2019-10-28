@@ -3,5 +3,5 @@ from django.views import generic
 from APIServer.models import contest
 
 class CalendarView(generic.ListView):
-	queryset = contest
+	queryset = contest.objects.all()
 	template_name = 'calendar.html'
