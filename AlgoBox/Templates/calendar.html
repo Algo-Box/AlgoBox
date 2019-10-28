@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+	  
+{% block content %}
+
+{% block header %}
+{% include "header.html" %}
+{% endblock header %}
+
+<div class="container">
+	<table>
+		<div class="row">
+			<tr>
+				<th>Contest Name</th>
+				<th>Start Time</th>
+				<th>End Time</th>
+				<th>Duration</th>
+			</tr>
+			{{ for con in contest}}
+			<tr>
+				<a href="{{ contest.href }}">
+					<td> con.event </td>
+				</a>
+				<td> con.start </td>
+				<td> con.end </td>
+				<td> con.duration </td>
+			</tr>
+			{{ endfor }}
+		</div>
+	</table>
+</div>
+
+{%endblock%}
