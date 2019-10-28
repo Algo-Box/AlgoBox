@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+	  
+{% block content %}
+
+{% block header %}
+{% include "header.html" %}
+{% endblock header %}
+
+<div class = "create_article">
+    <br>
+    <center><h2>Add article!!</h2></center>
+    <form class = "articlepst" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <br><br>
+        <input type = "submit" value="Create!!">
+    </form>
+</div>
+
+{%endblock%}
