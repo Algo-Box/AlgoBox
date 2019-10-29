@@ -5,13 +5,10 @@ API_KEY = os.environ.get("CodeForcesAPIKey")
 API_SECRET = os.environ.get("CodeForcesAPISecret")
 
 def customCmp(A, B):
-	if(A[0] == B[0]):
-		if A[1] < B[1]:
-			return -1
-		return 1
-	elif A[0] < B[0]:
-		return -1
-	return 1
+	if (A[0] - B[0] == 0):
+		return A[1] - B[1]
+	else:
+		return A[0] - B[0]
 
 def getHash(randNum, method, req):
 	hashString = str(randNum) + "/" + method + "?"
