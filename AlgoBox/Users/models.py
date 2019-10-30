@@ -8,9 +8,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length = 500, blank = True)
     cc_handle = CharField(max_length = 40, blank = True)
-    cf_handle = CharField(max_length=40, blank = True)
-    sp_handle = CharField(max_length=40, blank = True)
-    ac_handle = CharField(max_length=40, blank = True)
+    cf_handle = CharField(max_length = 40, blank = True)
+    sp_handle = CharField(max_length = 40, blank = True)
+    ac_handle = CharField(max_length = 40, blank = True)
 
 @receiver(post_save, sender = User)
 def create_user_profile(sender, instance, created, **kwargs):
