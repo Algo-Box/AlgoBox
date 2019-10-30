@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+	  
+{% block content %}
+
+{% block header %}
+{% include "header.html" %}
+{% endblock header %}
+
+<div class = "container">
+    <br>
+    <center><h2>Add article!!</h2></center>
+    <form class = "articlepst" method = "post" enctype="multipart/form-data" style="align-self: center">
+        {% csrf_token %}
+        <label>Title</label>
+        <br>
+        {{ form.title }}
+        <br>
+        <label>Slug</label>
+        <br>
+        {{ form.slug }}
+        <br>
+        <label>Content</label>
+        <br>
+        {{ form.content }}
+        <br>
+        <label>Status</label>
+        <br>
+        {{ form.status }}
+        <br><br>
+        <input type = "submit" value="Create!!">
+    </form>
+</div>
+
+{%endblock%}

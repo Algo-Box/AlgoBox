@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'Articles',
     'APIServer',
     'Calendar',
+    'Users',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,6 @@ STATIC_URL = '/static/'
 CRON_CLASSES = [
     "APIServer.tasks.MyCronJob",
 ]
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
