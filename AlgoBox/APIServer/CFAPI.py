@@ -5,18 +5,20 @@ API_KEY = os.environ.get("CodeForcesAPIKey")
 API_SECRET = os.environ.get("CodeForcesAPISecret")
 
 def customCmp(A, B):
-	if (A[0] - B[0] == 0):
-		return A[1] - B[1]
-	else:
-		return A[0] - B[0]
+	if(A[0] == B[0]):
+		if A[1] < B[1]:
+			return -1
+		return 1
+	elif A[0] < B[0]:
+		return -1
+	return 1
 
 def getHash(randNum, method, req):
 	hashString = str(randNum) + "/" + method + "?"
-	for i in range(len(req)):
-		hashString += str(req[i][0]) + "=" + str(req[i][1])
-		if i != len(req)-1:
-			hashString += "&"
-
+	for params in req:
+		hashString += str(params[0]) + "=" + str(params[1])
+		hashString += "&"
+	hashString = hashString[:-1]
 	hashString += "#" + API_SECRET
 	hashFunc = hashlib.sha512(hashString.encode())
 	return hashFunc.hexdigest()
@@ -24,7 +26,6 @@ def getHash(randNum, method, req):
 def getResponse(method, req):
 	baseAddress = "http://www.codeforces.com/api/"
 	currTime = round(time.time())
-	# print(API_KEY)
 	randNum = random.randint(100000, 1000000)
 
 	req.append(("apiKey", API_KEY))
@@ -35,13 +36,11 @@ def getResponse(method, req):
 
 	hashedString = getHash(randNum, method, req)
 	ADDRESS = baseAddress + method + "?"
-	for i in range(len(originalReq)):
-		ADDRESS += originalReq[i][0] + "=" + originalReq[i][1] + "&"
+	for params in originalReq:
+		ADDRESS += params[0] + "=" + params[1] + "&"
 	ADDRESS += "apiSig=" + str(randNum) + str(hashedString)
-	print(ADDRESS)
 	data = requests.get(ADDRESS)
-	# print(data.content)
 	return data.content
 
 # Testing Data
-getResponse("contest.list", [])
+# getResponse("contest.list", [])
