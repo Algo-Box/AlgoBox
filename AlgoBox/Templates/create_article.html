@@ -12,21 +12,21 @@
     <form class = "articlepst" method = "post" enctype="multipart/form-data" style="align-self: center">
         {% csrf_token %}
         <label>Title</label>
-        <br>
-        {{ form.title }}
-        <br>
+            <br>
+            {{ form.title }}
+            <br>
         <label>Slug</label>
-        <br>
-        {{ form.slug }}
-        <br>
+            <br>
+            {{ form.slug }}
+            <br>
         <label>Content</label>
-        <br>
-        {{ form.content }}
-        <br>
+            <br>
+            {{ form.content }}
+            <br>
         <label>Status</label>
-        <br>
-        {{ form.status }}
-        <br><br>
+            <br>
+            {{ form.status }}
+            <br><br>
         <input type = "submit" value="Create!!">
     </form>
 </div>

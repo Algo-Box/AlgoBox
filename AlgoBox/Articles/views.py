@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Post
 from APIServer.models import contest
+from django.contrib.auth.decorators import login_required
 from . import forms
+
 def PostList(req):
 	data = Post.objects.filter(status = 1).order_by('-created_on')
 	contestList = contest.objects.all()
@@ -20,6 +22,8 @@ def PostDetail(req, slug):
 	}
 	print(post)
 	return render(req, "post_detail.html", Data)
+
+@login_required(login_url='/enter/login/')
 def create_article(req):
 	if req.method == 'POST':
 		form = forms.CreateArticle(req.POST, req.FILES)
@@ -27,7 +31,7 @@ def create_article(req):
 			instance = form.save(commit=False)
 			instance.author = req.user
 			instance.save()
-			return render(req, "pstd.html")
+			return render(req, "article_created.html")
 	else:
 		form = forms.CreateArticle()
 	return render(req, "create_article.html", {'form': form})
